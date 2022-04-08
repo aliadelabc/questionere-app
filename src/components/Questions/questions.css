@@ -1,0 +1,27 @@
+.questions {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  height: 55vh;
+  border: 10px solid rgb(105, 105, 105);
+  border-radius: 4pt;
+  padding: 10px 20px;
+  overflow-x: hidden;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4pt;
+  padding: 10px 20px;
+  margin: 10px 0;
+  height: 100%;
+}
+@media (max-width: 900px) {
+  .meanings {
+    height: 60vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
