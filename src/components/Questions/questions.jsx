@@ -21,7 +21,6 @@ const Questions = ({ lightMode }) => {
   const [rightAnswers, setRightAnswers] = useState([]);
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [answered, setAnswered] = useState(false);
   const [answer, setAnswer] = useState([]);
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -31,7 +30,6 @@ const Questions = ({ lightMode }) => {
   };
   const handleChange = (value) => {
     setCorrectQuestion(value);
-    setAnswered(true);
   };
   const handleScore = () => {
     let i = 0;
@@ -50,7 +48,6 @@ const Questions = ({ lightMode }) => {
     handleNextStep();
   };
   useEffect(() => {
-    setAnswered(false);
     const fetchQuestions = async () => {
       setLoading(true);
       const res = await axios.get("https://opentdb.com/api.php?amount=1");
@@ -155,7 +152,7 @@ const Questions = ({ lightMode }) => {
                 style={{ marginRight: 20 }}
                 variant="contained"
                 onClick={handleSubmit}
-                disabled={!answered || loading}
+                disabled={loading}
               >
                 {loading ? "Loading..." : "Submit"}
               </Button>
